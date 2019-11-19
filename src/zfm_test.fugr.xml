@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>TEST FG</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFM_TESTTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFM_TEST</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>Z_DUMMY</FUNCNAME>
+     <SHORT_TEXT>ODATA FM</SHORT_TEXT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ET_DUMP_DET</PARAMETER>
+       <TYP>RSDUMPTAB</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>ET_DUMP_DET</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table of Short Information About Dump (Rabax)</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_JOBLOG</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>joblogs fm for odata</SHORT_TEXT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>EV_JOBLIST_SEL_JOB</PARAMETER>
+       <TYP>TBTCJOB</TYP>
+      </RSEXP>
+     </EXPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>ZJOBLIST</PARAMETER>
+       <DBSTRUCT>TBTCJOB</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>EV_JOBLIST_SEL_JOB</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Structure for Transferring Job Header Data (BI-API)</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ZJOBLIST</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Structure for Transferring Job Header Data (BI-API)</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_SEND_OTF_EMAIL_PDF3</FUNCNAME>
+     <SHORT_TEXT>Send mail FM</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>JOB_OUTPUT_INFO</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>SSFCRESCL</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>SENDER</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>SYUNAME</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>SENDER_ADDR</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>AD_SMTPADR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>RECIPIENT</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>SYUNAME</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>RECIPIENT_ADDR</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>AD_SMTPADR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>DOC_NAME</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR50</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>EMAIL_SUBJECT</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR50</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>I_SEND_IMMEDIATELY</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>XFELD</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>I_EXPRESS</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>XFELD</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>I_COPY</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>XFELD</TYP>
+      </RSIMP>
+     </IMPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>IT_RECIPIENTS</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BCSY_SMTPA</TYP>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>EMAIL_BODY</PARAMETER>
+       <DBSTRUCT>SOLISTI1</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_COPYTO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BCSY_SMTPA</TYP>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_BCOPYTO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BCSY_SMTPA</TYP>
+      </RSTBL>
+     </TABLES>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>ERROR_SENDING_EMAIL</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>ERROR_CONVERTING_OTF_DATA</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>JOB_OUTPUT_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Smart Forms: Return value at end of form printing</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SENDER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>User Name</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SENDER_ADDR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>E-Mail Address</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RECIPIENT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>User Name</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RECIPIENT_ADDR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>E-Mail Address</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>DOC_NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Comment</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EMAIL_SUBJECT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Comment</STEXT>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>I_SEND_IMMEDIATELY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Checkbox</STEXT>
+       <INDEX> 008</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>I_EXPRESS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Checkbox</STEXT>
+       <INDEX> 009</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>I_COPY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Checkbox</STEXT>
+       <INDEX> 010</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_RECIPIENTS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>BCS: Internal Table with SMTP Addresses</STEXT>
+       <INDEX> 011</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EMAIL_BODY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>SAPoffice: Single List with Column Length 255</STEXT>
+       <INDEX> 012</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_COPYTO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>BCS: Internal Table with SMTP Addresses</STEXT>
+       <INDEX> 013</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_BCOPYTO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>BCS: Internal Table with SMTP Addresses</STEXT>
+       <INDEX> 014</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_SENDING_EMAIL</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 015</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_CONVERTING_OTF_DATA</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 016</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
